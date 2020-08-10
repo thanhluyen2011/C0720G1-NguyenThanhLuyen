@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai1</title>
+</head>
+<body>
+<script>
+    let inputphysical;
+    let inputchemistry;
+    let inputbiological;
+    inputphysical = prompt('Nhập điểm Vật Lý');
+    inputchemistry = prompt('Nhập điểm Hóa Hóc');
+    inputbiological = prompt('Nhập điểm Sinh Học');
+    let physical = parseInt(inputphysical);
+    let chemistry = parseInt(inputchemistry);
+    let biological = parseInt(inputbiological)
+    let medium = (physical + chemistry + biological)/2 ;
+    let tutal = physical + chemistry + biological;
+    document.write('medium ='+medium);
+    document.write('<br/>')
+    document.write('tutal =' + tutal);
+</script>
+
+</body>
+</html>
