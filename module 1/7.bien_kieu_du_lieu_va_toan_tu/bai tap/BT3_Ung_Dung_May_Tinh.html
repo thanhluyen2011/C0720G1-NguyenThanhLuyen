@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Máy Tính</title>
+</head>
+<body>
+    <h1>Cucalator</h1>
+    <br>
+    <input id="a" type="text" name="So thu nhat">
+    <input id="b" type="text" name="So thu hai">
+    <br>
+    <br>
+    <input type="button" value="Addition(+)" onclick="duLieuTongHaiSo()">
+    <input type="button" value="Subtracsion(-)" onclick="duLieuHieuHaiSo()">
+    <input type="button" value="Multiplication(X)" onclick="duLieuTichHaiSo()">
+    <input type="button" value="Disvition(/)" onclick="duLieuThuongHaiSo()">
+    <p id="hienthi"></p>
+<script>
+        function duLieuTongHaiSo() {
+           let a =parseInt(document.getElementById('a').value);
+           let b =parseInt(document.getElementById('b').value);
+           Ketqua = a + b;
+           document.getElementById("hienthi").innerHTML='Result addition : ' + Ketqua
+        };
+        function duLieuHieuHaiSo() {
+            let a =parseInt(document.getElementById('a').value);
+            let b =parseInt(document.getElementById('b').value);
+            Ketqua = a - b;
+            document.getElementById("hienthi").innerHTML='Result subtracsion : ' + Ketqua
+        };
+        function duLieuTichHaiSo() {
+            let a =parseInt(document.getElementById('a').value);
+            let b =parseInt(document.getElementById('b').value);
+            Ketqua = a*b;
+            document.getElementById("hienthi").innerHTML='Result multiplication : ' + Ketqua
+        };
+        function duLieuThuongHaiSo() {
+            let a =parseInt(document.getElementById('a').value);
+            let b =parseInt(document.getElementById('b').value);
+            Ketqua = a/b;
+            document.getElementById("hienthi").innerHTML='Result disvition : ' + Ketqua
+        };
+</script>
+</body>
+</html>
