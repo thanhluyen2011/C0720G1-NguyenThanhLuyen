@@ -7,11 +7,11 @@
 <body>
 <form>
     <label style="margin-left: 65px">Amout</label>
-    <label style="margin-left: 110px">From Currency</label>
-    <label style="margin-left: 50px">To Currency</label>
+    <label style="margin-left: 100px">From Currency</label>
+    <label style="margin-left: 40px">To Currency</label>
     <br>
-    <input id="Amount" type="text" name="Amout">
-    <select id="Fromcurrency" style="width: 120px; margin-left: 30px">
+    <input id="Amount" type="text" name="Amount">
+    <select id="Fromcurrency" style="width: 100px; margin-left: 30px">
         <option id="Dollas" value="USD">USD</option>
         <option id="Vietnam" value="Vietnam">VietNam</option>
     </select>
@@ -20,7 +20,7 @@
         <option id="Dollas" value="USD">USD</option>
     </select>
     <input style="margin-left: 30px" type="button" value="Convert" onclick="chuyenDoiTienTe()">
-    <p id="convert"></p>
+    <p id="hienthi"></p>
 </form>
 <script>
     function chuyenDoiTienTe() {
@@ -28,11 +28,11 @@
         let fromCurrency = document.getElementById("Fromcurrency").value;
         let tocurrency = document.getElementById("Tocurrency").value;
         if ((fromCurrency === "USD") && (tocurrency === "Vietnam")){
-            document.getElementById("convert").innerHTML="Result:" + amount * 23000;
+            document.getElementById("hienthi").innerHTML="Result:" + amount * 23000;
         } else if ((fromCurrency === "Vietnam") && (tocurrency === "USD")) {
-            document.getElementById("convert").innerHTML ="Result:"+amount / 23000;
+            document.getElementById("hienthi").innerHTML ="Result:"+amount / 23000;
         } else {
-            document.getElementById("convert").innerHTML ="Result:"+ amount;
+            document.getElementById("hienthi").innerHTML ="Result:"+ amount;
         }
     }
 </script>
