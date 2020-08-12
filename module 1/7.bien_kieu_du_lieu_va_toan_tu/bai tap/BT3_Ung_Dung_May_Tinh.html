@@ -11,31 +11,31 @@
     <input id="b" type="text" name="So thu hai">
     <br>
     <br>
-    <input type="button" value="Addition(+)" onclick="duLieuTongHaiSo()">
-    <input type="button" value="Subtracsion(-)" onclick="duLieuHieuHaiSo()">
-    <input type="button" value="Multiplication(X)" onclick="duLieuTichHaiSo()">
-    <input type="button" value="Disvition(/)" onclick="duLieuThuongHaiSo()">
+    <input type="button" value="Addition(+)" onclick="tongHaiSo()">
+    <input type="button" value="Subtracsion(-)" onclick="hieuHaiSo()">
+    <input type="button" value="Multiplication(X)" onclick="tichHaiSo()">
+    <input type="button" value="Disvition(/)" onclick="thuongHaiSo()">
     <p id="hienthi"></p>
 <script>
-        function duLieuTongHaiSo() {
+        function tongHaiSo() {
            let a =parseInt(document.getElementById('a').value);
            let b =parseInt(document.getElementById('b').value);
            Ketqua = a + b;
            document.getElementById("hienthi").innerHTML='Result addition : ' + Ketqua
         };
-        function duLieuHieuHaiSo() {
+        function hieuHaiSo() {
             let a =parseInt(document.getElementById('a').value);
             let b =parseInt(document.getElementById('b').value);
             Ketqua = a - b;
             document.getElementById("hienthi").innerHTML='Result subtracsion : ' + Ketqua
         };
-        function duLieuTichHaiSo() {
+        function tichHaiSo() {
             let a =parseInt(document.getElementById('a').value);
             let b =parseInt(document.getElementById('b').value);
             Ketqua = a*b;
             document.getElementById("hienthi").innerHTML='Result multiplication : ' + Ketqua
         };
-        function duLieuThuongHaiSo() {
+        function thuongHaiSo() {
             let a =parseInt(document.getElementById('a').value);
             let b =parseInt(document.getElementById('b').value);
             Ketqua = a/b;
