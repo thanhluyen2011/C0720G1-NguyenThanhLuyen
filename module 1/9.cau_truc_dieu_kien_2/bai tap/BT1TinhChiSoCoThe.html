@@ -5,7 +5,20 @@
     <title>Chỉ Số Cơ Thể</title>
 </head>
 <body>
-
+ <script>
+     let canNang = parseInt(prompt("Nhập cân năng"));
+     let chieuCao = parseInt(prompt("Nhập chiều cao"));
+     bmi = canNang/(chieuCao*chieuCao);
+     if (bmi<18.5){
+         alert("Underweight");
+     }else if (bmi<25.0){
+         alert("Normal");
+     }else if (bmi<30.0){
+         alert("Overweight");
+     }else {
+         alert("Obese")
+     }
+ </script>
 
 </body>
 </html>
