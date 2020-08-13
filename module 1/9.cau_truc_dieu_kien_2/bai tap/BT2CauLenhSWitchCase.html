@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day of month</title>
+</head>
+<body>
+<form>
+    <input type="number" id="month" value="Month">
+    <button type="button" onclick="tinhSongay()">Tính Số Ngày</button>
+    <p>
+    <h2 id="hienthi">Số ngày là : </h2></p>
+</form>
+<script> function tinhSongay() {
+    let month = parseInt(document.getElementById('month').value);
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            document.getElementById('hienthi').innerHTML = 'Số ngày là:' + 31;
+            break;
+        case 2 :
+            document.getElementById('hienthi').innerHTML = 'Số ngày là: 28,29';
+            break;
+        case 4 :
+        case 6:
+        case 9 :
+        case 10 :
+            document.getElementById('hienthi').innerHTML = 'Số ngày là:' + 30;
+            break;
+        default:
+            document.getElementById('hienthi').innerHTML = 'not a month';
+            break;
+    }
+}
+</script>
+</body>
+</html>
