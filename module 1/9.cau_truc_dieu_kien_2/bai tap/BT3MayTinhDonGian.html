@@ -5,33 +5,93 @@
     <title>Máy Tính</title>
 </head>
 <body>
-    <input name="bieuthuc" id="bieuthuc" style="width: 165px;height: 40px">
+<form>
+    <input name="windown" id="windown" style="width: 165px;height: 40px" value="" type="text">
     <br>
     <br>
-    <input type="button" value="1" style="width: 40px;height: 40px;color: blue" name="one">
-    <input type="button" value="2" style="width: 40px;height: 40px;color: blue" name="tow">
-    <input type="button" value="3" style="width: 40px;height: 40px;color: blue" name="three">
-    <input type="button" value="+" style="width: 40px;height: 40px;color: blue" name="plus">
+    <input type="button" value="1" style="width: 40px;height: 40px;color: blue" onclick="number1()">
+    <input type="button" value="2" style="width: 40px;height: 40px;color: blue" onclick="number2()">
+    <input type="button" value="3" style="width: 40px;height: 40px;color: blue" onclick="number3()">
+    <input type="button" value="+" style="width: 40px;height: 40px;color: blue" onclick="plus()">
     <br>
     <br>
-    <input type="button" value="4" style="width: 40px;height: 40px;color: blue" name="four">
-    <input type="button" value="5" style="width: 40px;height: 40px;color: blue" name="five">
-    <input type="button" value="6" style="width: 40px;height: 40px;color: blue" name="six">
-    <input type="button" value="-" style="width: 40px;height: 40px;color: blue" name="minus">
+    <input type="button" value="4" style="width: 40px;height: 40px;color: blue" onclick="number4()">
+    <input type="button" value="5" style="width: 40px;height: 40px;color: blue" onclick="number5()">
+    <input type="button" value="6" style="width: 40px;height: 40px;color: blue" onclick="number6()">
+    <input type="button" value="-" style="width: 40px;height: 40px;color: blue" onclick="minus()">
     <br>
     <br>
-    <input type="button" value="7" style="width: 40px;height: 40px;color: blue" name="seven">
-    <input type="button" value="8" style="width: 40px;height: 40px;color: blue" name="eight">
-    <input type="button" value="9" style="width: 40px;height: 40px;color: blue" name="nine">
-    <input type="button" value="X" style="width: 40px;height: 40px;color: blue" name="operator">
+    <input type="button" value="7" style="width: 40px;height: 40px;color: blue" onclick="number7()">
+    <input type="button" value="8" style="width: 40px;height: 40px;color: blue" onclick="number8()">
+    <input type="button" value="9" style="width: 40px;height: 40px;color: blue" onclick="number9()">
+    <input type="button" value="X" style="width: 40px;height: 40px;color: blue" onclick="mul()">
     <br>
     <br>
-    <input type="button" value="C" style="width: 40px;height: 40px;color: blue" name="clear">
-    <input type="button" value="0" style="width: 40px;height: 40px;color: blue" name="zero">
-    <input type="button" value="=" style="width: 40px;height: 40px;color: blue" name="doit">
-    <input type="button" value="/" style="width: 40px;height: 40px;color: blue" name="div">
+    <input type="button" value="C" style="width: 40px;height: 40px;color: blue" onclick="clear()">
+    <input type="button" value="0" style="width: 40px;height: 40px;color: blue" onclick="number0()">
+    <input type="button" value="=" style="width: 40px;height: 40px;color: blue" onclick="doit()">
+    <input type="button" value="/" style="width: 40px;height: 40px;color: blue" onclick="div()">
+</form>
     <script>
+        function number1() {
+            document.getElementById("windown").value +=1;
+        }
+        function number2() {
+            document.getElementById("windown").value +=2;
+        }
 
+        function number3() {
+            document.getElementById("windown").value +=3;
+        }
+        function number4() {
+            document.getElementById("windown").value +=4;
+
+        }
+        function number5() {
+            document.getElementById("windown").value +=5;
+
+        }
+        function number6() {
+            document.getElementById("windown").value +=6;
+
+        }
+        function number7() {
+            document.getElementById("windown").value +=7;
+
+        }
+        function number8() {
+            document.getElementById("windown").value +=8;
+
+        }
+        function number9() {
+            document.getElementById("windown").value +=9;
+
+        }
+        function number0() {
+            document.getElementById("windown").value +=0;
+
+        }
+        function clear() {
+            document.getElementById("windown").value ="";
+        }
+        function plus() {
+            document.getElementById("windown").value +="+";
+        }
+        function div() {
+            document.getElementById("windown").value +="/";
+        }
+        function minus() {
+            document.getElementById("windown").value +="-";
+        }
+        function mul() {
+            document.getElementById("windown").value +="*";
+        }
+
+        function doit() {
+            let string = document.getElementById("windown").value;
+            result=eval(string);
+            document.getElementById("windown").value =result;
+        }
     </script>
 
 </body>

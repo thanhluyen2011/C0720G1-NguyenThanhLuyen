@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập điểm bài kiểm tra"));
+    let b = parseInt(prompt("Nhập điểm bài thi giữa kỳ"));
+    let c = parseInt(prompt("Nhập điểm thi cuối kỳ"));
+    medium = (a + b + c)/3;
+    if (medium > 8.0){
+        alert("Bạn đạt danh hiệu học sinh giỏi");
+    }else if (medium > 6.5){
+        alert("Bạn đạt danh hiệu học sinh khá");
+    }else if (medium > 5.0){
+        alert("Bạn đạt danh hiệu học sinh trung bình");
+    }else if (medium > 3.0){
+        alert("Bạn đạt danh hiệu học sinh yếu");
+    }else {
+        alert("Bạn đạt danh hiệu học sinh kém")
+    }
+</script>
+
+</body>
+</html>
