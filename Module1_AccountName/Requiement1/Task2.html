@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen</title>
+</head>
+<body>
+<script>
+    let Ten = prompt("inputTen");
+    let CMND = prompt("inputCMND");
+    let Ngaysinh = prompt("inputNgaysinh");
+    let Email = prompt("inputEmail");
+    let Diachi = prompt("inputDiaChi");
+    let Custorer = prompt("inputCustorer");
+    let Giamgia = prompt("inputGiamgia");
+    let Nguoidi = prompt("inputNguoidi");
+    let Ngaythue = prompt("inputNgaythue");
+    let Dichvu = prompt("inputDichvu");
+    let Phongthue = prompt("inputPhognthue");
+    let giadichvu = 0;
+    if (Dichvu == 'Villa'){
+        giadichvu = 500 * Ngaythue * (1 - Giamgia/100);
+    }else if (Dichvu == 'House'){
+        giadichvu = 300 * Ngaythue * (1 - Giamgia/100);
+    }else {
+        giadichvu = 100 * Ngaythue * (1 - Giamgia/100);
+    }
+
+    document.write('Ten = ' + Ten);
+    document.write('<br/>');
+    document.write('CMND = ' + CMND);
+    document.write('<br/>');
+    document.write('Ngày sinh = ' + Ngaysinh);
+    document.write('<br/>');
+    document.write('Email = ' + Email);
+    document.write('<br/>');
+    document.write('Địa chỉ = ' + Diachi);
+    document.write('<br/>');
+    document.write('Custorer = ' + Custorer);
+    document.write('<br/>');
+    document.write('Giảm giá = ' + Giamgia);
+    document.write('<br/>');
+    document.write('Số người đi = ' + Nguoidi);
+    document.write('<br/>');
+    document.write('Số Ngày thuê = ' + Ngaythue);
+    document.write('<br/>');
+    document.write('Loại dịch vụ = ' + Dichvu);
+    document.write('<br/>');
+    document.write('Loại phòng thuê = ' + Phongthue);
+    document.write('<br/>');
+    document.write('Số tiền phải trả = ' + giadichvu);
+
+</script>
+
+</body>
+</html>
