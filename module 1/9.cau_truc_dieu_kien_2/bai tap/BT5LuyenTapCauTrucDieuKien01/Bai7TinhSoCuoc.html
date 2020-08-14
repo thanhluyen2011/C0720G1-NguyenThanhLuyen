@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3 style="margin-left: 500px"> Tính Cước Điện Thoại </h3>
+<form>
+    <select id="goiDienThoai" style="width: 200px">
+        <option value="noiMang" > Gọi Nội Mạng</option>
+        <option value="ngoaiMnag" > Gọi Ngoại Mạng</option>
+    </select>
+    <input type="text" id="phutGoi" placeholder="Nhập Số Phút Gọi">
+    <input type="button" value="Tính Tiền" onclick="cuocDienThoai()">
+    <p id="kQua"></p>
+</form>
+<script>
+    function cuocDienThoai() {
+        let phutGoi = parseFloat(document.getElementById("phutGoi").value);
+        let goiDienThoai=document.getElementById("goiDienThoai").value;
+        let kQua;
+        if(goiDienThoai==="noiMang"){
+            kQua=1000*phutGoi
+        }else {
+            kQua=2500*phutGoi
+        }
+        document.getElementById("kQua").innerHTML = kQua + " VND ";
+    }
+</script>
+</body>
+</html>

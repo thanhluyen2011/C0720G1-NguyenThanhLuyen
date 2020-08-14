@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let thunhap = parseInt(prompt("Nhập số thu nhập tính thuế 1 tháng"));
+    if (thunhap <= 5){
+        thue = thunhap * (5/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng");
+    }else if (thunhap <=10){
+        thue = thunhap * (10/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng");
+    }else if (thunhap <=18){
+        thue = thunhap * (15/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng");
+    }else  if (thunhap <=32){
+        thue = thunhap * (20/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng");
+    }else if (thunhap <=52){
+        thue = thunhap * (25/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng");
+    }else if (thunhap <=80){
+        thue = thunhap * (30/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng");
+    }else {
+        thue = thunhap * (35/100);
+        alert("Thuế TNCN của bạn là : " + thue +"Triệu đồng")
+    }
+</script>
+
+</body>
+</html>
