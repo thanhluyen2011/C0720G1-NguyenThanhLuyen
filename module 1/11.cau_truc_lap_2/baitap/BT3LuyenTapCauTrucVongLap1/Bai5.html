@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let i=0;
+    let a =0;
+    let b = 1;
+    let temp;
+    let d = a + b;
+    document.write(a+ "<br>"+b);
+    while (i<18) {
+        let c = a +b;
+        d = d + c;
+        document.write("<br>"+(a+b));
+        temp=b;
+        b=a+b;
+        a=temp;
+        i++;
+    }
+    document.write("<br>" + "Tổng 20 số là : " + d);
+</script>
+</body>
+</html>
