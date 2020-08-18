@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Hãy đoán số</h1>
+    <button type="button" onclick="play()" value="Chơi">Play</button>
+</center>
+<script>
+    function play() {
+        let a = parseInt(prompt("Nhập khoảng đoán bắt đầu"));
+        let b = parseInt(prompt("Nhập khoảng đoán kết thúc"));
+        let radom =Math.ceil((b-a)*Math.random())+a;
+        for (let i=1; i<=3; i++){
+            let c = parseInt(prompt("Nhập số bạn đoán"));
+            if (c == radom){
+                alert("Bạn đoán đúng")
+                break;
+            }else if (c<radom){
+                alert("Số bạn nhập nhỏ hơn số cần dự đoán.Hãy nhập lại")
+            }else {
+                alert("Số bạn nhập lớn hơn số cần dự đoán.Hãy nhập lại")
+            }
+        }
+
+
+
+    }
+</script>
+
+</body>
+</html>

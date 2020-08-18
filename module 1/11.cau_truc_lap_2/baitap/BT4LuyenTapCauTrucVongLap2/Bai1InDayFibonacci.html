@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let e = parseInt(prompt("Nhập số cần in ra"));
+    let i=0;
+    let a =0;
+    let b = 1;
+    let temp;
+    document.write(a+ "<br>"+b);
+    while (i<e) {
+        document.write("<br>"+(a+b));
+        temp=b;
+        b=a+b;
+        a=temp;
+        i++;
+    }
+</script>
+</body>
+</html>
