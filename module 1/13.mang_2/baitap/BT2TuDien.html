@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<form action="">
+    <input type="text" name="input" id="input">
+    <input type="button" value="Search" onclick="search();">
+</form>
+<p id="hienthi"></p>
+</center>
+<script>
+    function search() {
+        let input = document.getElementById("input").value;
+        let array1 =["pen", "notebook","cat","chair","hat","motorcycle"];
+        let array2 = ["cây viết","sổ tay","con mèo","cái ghế","cái mũ","xe máy"];
+        for (let i = 0 ; i < array1.length ; i++){
+            if(input === array1[i]){
+                document.getElementById("hienthi").innerHTML = array2[i];
+                break;
+            }else {
+                document.getElementById("hienthi").innerHTML = "từ bạn tìm không có trong từ điển";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

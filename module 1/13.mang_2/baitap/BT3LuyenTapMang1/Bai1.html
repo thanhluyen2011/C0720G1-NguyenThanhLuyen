@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<script>
+    let n=parseInt(prompt("Nhập độ dài mảng mảng"));
+    let x=new Array(n);
+    for (let a=0;a<x.length;a++){
+        x[a] = prompt("Nhập phần tử của mảng")
+    }
+    let count1 = 0;
+    let count2 = 0;
+    for (let i = 0;i <n;i++){
+        if (x[i] == 10){
+            count1++;
+        }else if (x[i] > 10){
+            count2++;
+        }
+    }
+    document.write("Có " + count1 + " số là số 10" + "<br>");
+    document.write("Có " + count2 + " lớn hơn 10");
+</script>
+</center>
+</body>
+</html>

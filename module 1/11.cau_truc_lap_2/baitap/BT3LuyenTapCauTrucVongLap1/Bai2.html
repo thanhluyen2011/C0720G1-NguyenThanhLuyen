@@ -6,14 +6,19 @@
 </head>
 <body>
 <script>
+
     let nhietdo = prompt("NHập nhiệt độ");
-    if (nhietdo > 100){
-        alert("hãy giảm nhiệt độ!");
-    }else if (nhietdo <20){
-        alert("Hãy tăng nhiệt độ!");
-    }else {
-        alert("NHiệt dộ của bạn hợp lý!")
+    let check = true;
+    while (check){
+        if (nhietdo > 100){
+            nhietdo = prompt("Hãy giảm nhiệt độ!Nhập lại");
+        }else if (nhietdo < 20){
+            nhietdo = prompt("Hãy tăng nhiệt độ!Nhập lại");
+        }else {
+            alert("Nhiệt độ hợp lý!");
+        }
     }
+
 </script>
 
 </body>

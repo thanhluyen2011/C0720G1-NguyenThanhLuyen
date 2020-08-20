@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = parseInt(prompt("Nhập giá trị vào mảng:"));
+    let array = new Array(input);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = prompt("Input a " + i + ": ");
+    }
+    let count = 0;
+    for (let i = 0;i<input; i++){
+        if (array[i] < 0){
+            count++;
+        }
+    }
+    alert("Trong mảng có " + count + "phần tử là số nguyên âm");
+</script>
+</body>
+</html>
