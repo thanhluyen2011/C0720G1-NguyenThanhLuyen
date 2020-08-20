@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let giaTri = parseInt(prompt("Nhập độ dài mảng mảng"));
+    let array = new Array(giaTri);
+    for (let a = 0; a < array.length; a++) {
+        array[a] = prompt("Nhập phần tử của mảng");
+    }
+    array.reverse();
+    document.write("array đảo ngược = " + array.join(""));
+</script>
+
+</body>
+</html>
