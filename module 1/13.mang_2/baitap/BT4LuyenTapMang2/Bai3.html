@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <script>
-    let giaTri = parseInt(prompt("Nhập độ dài mảng mảng"));
-    let array = new Array(giaTri);
-    for (let a = 0; a < array.length; a++) {
-        array[a] = prompt("Nhập phần tử của mảng");
-    }
+    let a = ['c','s','c',2,6,'1'];
     let count = 0;
-    for (let i = 0; i < array.length; i++){
-        if (typeof array[i] == "number"){
+    for (let i = 0; i < a.length; i++){
+        if (typeof a[i] == "number"){
             count++;
         }
     }
-    alert("Tổng số ký tự là số: " + count);
+    alert("Tổng số ký tự số là : " + count);
 </script>
 </body>
 </html>
