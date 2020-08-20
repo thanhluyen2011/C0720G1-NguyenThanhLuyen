@@ -6,13 +6,13 @@
 </head>
 <body>
 <script>
-    let array = new Array(10);
-    for(let i = 0; i< array.length ; i++){
-        array[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1)));
+    let number = new Array(10);
+    for (let i = 0; i < number.length; i++) {
+        number[i] = parseInt(prompt("nhập vào các phần tử của mảng"));
     }
-    array.sort();
-    array.reverse();
-    alert(array)
+    document.write( number.sort(function (a, b) {
+        return b - a
+    }));
 </script>
 </body>
 </html>

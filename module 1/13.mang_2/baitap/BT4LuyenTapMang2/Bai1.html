@@ -9,9 +9,9 @@
     let chieu1 = parseInt(prompt("Nhập giá trị cột"));
     let chieu2 = parseInt(prompt("Nhập giá trị dòng"));
     let mangHaiChieu = new Array(chieu1);
-    for (let i = 0; i < chieu1.length; i++) {
+    for (let i = 0; i < chieu1; i++) {
         mangHaiChieu[i] = new Array(chieu2);
-        for (let j = 0; j < chieu2[i].length; j++) {
+        for (let j = 0; j < chieu2; j++) {
             mangHaiChieu[i][j] = parseInt(prompt("Input " + i + " " + j + ": "));
         }
     }
