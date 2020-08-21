@@ -6,22 +6,20 @@
 </head>
 <body>
 <script>
-    let array = new Array(10);
-    for(let i = 0; i< array.length ; i++){
-        array[i] = prompt("Nhập phần tử thứ " + (i + 1));
-    }
-    let check = false;
-    let V = prompt("Nhập vào V:");
-    for (let i = 0 ; i < array.length  ; i++) {
-        if (array[i] == V) {
-            array.splice(i,1);
+    let mang = [ 1 , 4 , 3 , 4 , 4 , 6 , 6 , 8 , 9 , 10 ];
+    let v = parseInt(prompt("enter integer V"));
+    let check=false;
+    for (let i = 0 ; i < mang.length ; i++) {
+        if (mang[i] === v) {
             check=true;
+            mang.splice(i,1);
+            i--;
         }
     }
     if (check){
-        alert(array);
+        alert("V is  in the array"+ mang);
     }else {
-        alert( V + " không thuộc mảng đã cho");
+        alert("V is not in the array");
     }
 </script>
 </body>
