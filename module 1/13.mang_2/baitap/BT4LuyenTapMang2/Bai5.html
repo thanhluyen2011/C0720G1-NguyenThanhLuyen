@@ -6,7 +6,24 @@
 </head>
 <body>
 <script>
-
+    let a = prompt("nhập chuỗi a");
+    let b = prompt("nhập chuỗi b");
+    mang1 = a.split("");
+    mang2 = b.split("");
+    let result = "";
+    if (mang1.length == mang2.length) {
+        for (let i = 0; i < mang1.length; i++) {
+            if (mang1[i] !== mang2[i]) {
+                result = "2 chuỗi khác nhau";
+                break;
+            } else {
+                result="2 chuỗi giống nhau"
+            }
+        }
+    } else {
+        result = "2 chuỗi khác nhau";
+    }
+    alert(result);
 </script>
 </body>
 </html>
