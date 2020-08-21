@@ -6,18 +6,26 @@
 </head>
 <body>
 <script>
-    let a = prompt("nhập chuỗi a");
-    let b = prompt("nhập chuỗi b");
-    mang1 = a.split("");
-    mang2 = b.split("");
+    let i;
+    let str1 = prompt("NHập chuỗi 1");
+    let str2 = prompt("Nhập chuỗi 2");
+    mang1 = str1.split("");
+    mang2 = str2.split("");
     let result = "";
-    if (mang1.length == mang2.length) {
+    let cnt = 0;
+    if (mang1.length === mang2.length) {
         for (let i = 0; i < mang1.length; i++) {
-            if (mang1[i] !== mang2[i]) {
+            if (mang1[i] == mang2[i]) {
+                cnt++;
+            } else {
                 result = "2 chuỗi khác nhau";
                 break;
+            }
+            if (cnt = mang1.length) {
+                result = "2 chuỗi giống nhau";
             } else {
-                result="2 chuỗi giống nhau"
+                result = "2 chuỗi khác nhau";
+                break;
             }
         }
     } else {

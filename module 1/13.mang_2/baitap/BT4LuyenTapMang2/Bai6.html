@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let giaTri = parseInt(prompt("Nhập độ dài mảng mảng"));
+    let array = new Array(giaTri);
+    for (let a = 0; a < array.length; a++) {
+        array[a] = prompt("Nhập phần tử của mảng");
+    }
+    for (let i = 0; i < array.length; i++){
+        if (array[i] == "-"){
+            array.splice(i,1,"_")
+        }
+    }
+    document.write(array)
+</script>
+</body>
+</html>
