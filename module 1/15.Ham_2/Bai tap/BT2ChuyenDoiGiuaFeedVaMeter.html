@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chuyenDoi = parseInt(prompt("1.Chuyển từ foot sang meter" + "\n" +
+    "2.Chuyển từ meter sang foot"));
+    switch (chuyenDoi) {
+        case 1:{
+            a = prompt("Nhập số foot muốn chuyển đổi");
+            alert(footToMeter(a));
+            break;
+        }
+        case 2 : {
+            let b = prompt("Nhập số meter muốn chuyển đổi");
+            alert(meterToFoot(b));
+            break
+        }
+    }
+    function footToMeter(foot) {
+        meter = 0.305 *foot;
+        return meter;
+    }
+    function meterToFoot(meter) {
+        foot = 3.279 * meter;
+        return foot;
+    }
+</script>
+</body>
+</html>

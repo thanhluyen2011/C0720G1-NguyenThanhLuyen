@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('Nhập số muốn kiểm tra'));
+    alert(isPrime(a));
+    function isPrime(number) {
+        let p;
+        if ((number === 0)|| (number === 1)) {
+            p = false;
+        } else if (number === 2) {
+            p = true;
+        }
+        for (let i = 2; i<number; i++) {
+            if (number % i === 0) {
+                p = false;
+                break;
+            } else {
+                p = true;
+            }
+        }
+        if (p){
+            alert("Số vừa nhập là số nguyên tố")
+        }else {
+            alert("Số vừa nhập không phải là số nguyên tố")
+        }
+    }
+</script>
+</body>
+</html>
