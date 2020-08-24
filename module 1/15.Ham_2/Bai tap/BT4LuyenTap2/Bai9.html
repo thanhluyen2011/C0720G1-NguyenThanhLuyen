@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemTramKyTu(kyTu) {
+        let input = parseInt(prompt("Nhập giá trị vào mảng:"));
+        let array = new Array(input);
+        for (let i = 0; i < array.length; i++) {
+            array[i] = prompt("Input a " + i + ": ");
+        }
+        let cnt = 0;
+        for (let i = 1; i < array.length; i++){
+            if (kyTu === array[i]){
+                cnt++;
+            }
+        }
+        if (cnt === 0){
+            return -1;
+        }else {
+            return cnt;
+        }
+    }
+    let kyTu = prompt("Nhập ký tự");
+    alert(kiemTramKyTu(kyTu));
+
+</script>
+</body>
+</html>

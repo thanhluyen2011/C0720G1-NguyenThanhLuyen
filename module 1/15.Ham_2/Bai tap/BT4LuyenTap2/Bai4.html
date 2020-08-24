@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemTra(a) {
+        let check;
+        if (!isNaN(a)){
+            check = true;
+        }else {
+            check = false;
+        }
+        return check;
+    }
+    let a = prompt("Nhập ký tự muốn kiểm tra là ký tự số hay không");
+    alert(kiemTra(a));
+</script>
+</body>
+</html>

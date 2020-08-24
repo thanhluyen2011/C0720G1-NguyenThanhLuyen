@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = parseInt(prompt("Nhập giá trị vào mảng:"));
+    let array = new Array(input);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = parseInt(prompt("Input a " + i + ": "));
+    }
+    function daoNguoc(arr) {
+        return arr.reverse().join("");
+    }
+    alert(daoNguoc(array));
+
+</script>
+
+</body>
+</html>

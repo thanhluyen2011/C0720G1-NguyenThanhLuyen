@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ten = "Nguyễn Thành Luyện";
+    let cmnd = "206338827";
+    let ngaysinh = "20/11/2000";
+    let email = "luyen20112000@gmail.com";
+    let diachi = "Quảng Nam";
+    let customer = "Diamond";
+    let phongthue = "Vip";
+    let dichvu = "Villa";
+    let giamgia = 10;
+    let nguoidi = 3;
+    let ngaythue = 3;
+    let menu = parseInt(prompt("1.Hiện thị thông tin khác hàng" + "\n" +
+        "2.Chỉnh sửa thông tin khác hàng" + "\n" +
+        "3.Hiển thị giá sau khi giảm giá"));
+    switch (menu) {
+        case 1:{
+            alert(
+                "Tên : " + ten + "\n" +
+                "CMND : " + cmnd + "\n" +
+                "Ngày sinh : " + ngaysinh + "\n" +
+                "Email :" + email + "\n" +
+                "Địa chỉ : " + diachi + "\n" +
+                "Loại khách hàng :" + customer + "\n" +
+                "Loại phòng thuê : " + phongthue + "\n" +
+                "Loại dịch vụ : " + dichvu + "\n" +
+                "Giảm giá : " + giamgia + "\n" +
+                "Số người đi : " + nguoidi + "\n" +
+                "Số ngày thuê : " + ngaythue + "\n");
+            break;
+        }
+        case 2:{
+            let menuedit = parseInt(prompt(
+                "1.Tên : " + ten + "\n" +
+                "2.CMND : " + cmnd + "\n" +
+                "3.Ngày sinh : " + ngaysinh + "\n" +
+                "4.Email :" + email + "\n" +
+                "5.Địa chỉ : " + diachi + "\n" +
+                "6.Loại khách hàng :" + customer + "\n" +
+                "7.Loại phòng thuê : " + phongthue + "\n" +
+                "8.loại dịch vụ : " + dichvu + "\n" +
+                "9.Giảm giá : " + giamgia + "\n" +
+                "10.Số người đi : " + nguoidi + "\n" +
+                "11.Số ngày thuê : " + ngaythue + "\n"));
+            switch (menuedit) {
+                case 1:{
+                    ten = prompt("Nhập tên : ");
+                    break;
+                }
+                case 2 : {
+                    cmnd = prompt("Nhập số CMND :");
+                    break;
+                }
+                case 3 : {
+                    ngaysinh = prompt("Nhập ngày sinh :");
+                    break;
+                }
+                case 4 : {
+                    email = prompt("Nhập emal :");
+                    break;
+                }
+                case 5 : {
+                    diachi = prompt("NHập địa chỉ");
+                    break;
+                }
+                case 6 : {
+                    customer = prompt("Nhập loại khác hàng");
+                    break;
+                }
+                case 7 : {
+                    phongthue = prompt("Nhập loại phòng thuê");
+                    break;
+                }
+                case 8 : {
+                    dichvu = prompt("Nhập loại dịch vụ");
+                    break;
+                }
+                case 9 : {
+                    giamgia = prompt("Nhập % giảm giá");
+                    break;
+                }
+                case 10 : {
+                    nguoidi = prompt("NHập số người đi");
+                    break;
+                }
+                case 11 : {
+                    ngaythue = prompt("Nhập số ngày thuê");
+                    break;
+                }
+                default:{
+                    alert("Failed")
+                }
+            }
+            alert("Tên : " + ten + "\n" +
+                "CMND : " + cmnd + "\n" +
+                "Ngày sinh : " + ngaysinh + "\n" +
+                "Email :" + email + "\n" +
+                "Địa chỉ : " + diachi + "\n" +
+                "Loại khách hàng :" + customer + "\n" +
+                "Loại phòng thuê : " + phongthue + "\n" +
+                "Loại dịch vụ : " + dichvu + "\n" +
+                "Giảm giá : " + giamgia + "\n" +
+                "Số người đi : " + nguoidi + "\n" +
+                "Số ngày thuê : " + ngaythue + "\n");
+            break;
+        }
+        default:{
+            alert("Sự lựa chọn của bạn không có trong trình đơn");
+        }
+        case 3 : {
+            let money = 0;
+            if (dichvu === "Villa"){
+                money = 500;
+            }else if (dichvu === "House"){
+                money = 300;
+            }else if (dichvu === "Room"){
+                money = 100;
+            }
+            let temp = 0;
+            if (diachi === "Đà nẵng"){
+                    temp += 20;
+            }else  if (diachi === "Huế"){
+                temp += 10;
+            }else if (diachi === "Quảng nam"){
+                temp += 5;
+            }
+            if (ngaythue > 7){
+                temp += 30;
+            }else if (ngaythue > 5){
+                temp += 20;
+            }else if (ngaythue > 2){
+                temp +=10;
+            }
+            alert("Tổng tiền phải trả là : " + (money*ngaythue - temp));
+        }
+    }
+</script>
+</body>
+</html>

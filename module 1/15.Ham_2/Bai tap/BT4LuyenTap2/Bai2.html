@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let menu = parseInt(prompt("1.Tính diện tích hình tròn" + "\n" +
+    "2.Tính chi vi hình tròn"));
+    switch (menu) {
+        case 1:{
+            let banKinh = prompt("Nhập bán kính");
+            alert("Diện tích là " + dienTich(banKinh));
+            break;
+        }
+        case 2:{
+            let duongKinh = prompt("Nhập đường kính");
+            alert("Chu vi là " + chuVi(duongKinh));
+            break;
+        }
+    }
+    function dienTich(banKinh) {
+        S = banKinh*banKinh*3.14;
+        return S;
+    }
+    function chuVi(number) {
+        A = (number*number/4)*3.14;
+        return A;
+
+    }
+</script>
+</body>
+</html>
