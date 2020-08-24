@@ -13,7 +13,7 @@
             array[i] = prompt("Input a " + i + ": ");
         }
         let cnt = 0;
-        for (let i = 1; i < array.length; i++){
+        for (let i = 0; i < array.length; i++){
             if (kyTu === array[i]){
                 cnt++;
             }
@@ -21,7 +21,7 @@
         if (cnt === 0){
             return -1;
         }else {
-            return cnt;
+            return kyTu + " xuất hiện trong mảng " + cnt + " lần";
         }
     }
     let kyTu = prompt("Nhập ký tự");
