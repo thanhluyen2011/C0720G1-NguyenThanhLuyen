@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BÀI TẬP 05</title>
 </head>
 <body>
 <script>
-    let number = parseInt(prompt("Nhập số nguyên"));
-    alert(kiemTra(number));
+    let a =(parseFloat(prompt("Nhập số")));
+    alert(kiemTra(a));
     function kiemTra(a) {
-        if (a > 0){
+        if (Number.isInteger(a) && a > 0) {
             return true;
         }else {
             return false;
         }
     }
 </script>
-
 </body>
-</html>
+</html
