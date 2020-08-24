@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ten;
+    let CMND ;
+    let ngaySinh;
+    let email;
+    let diaChi;
+    let customer;
+    let giamGia;
+    let nguoiDi;
+    let ngayThue;
+    let dichVu;
+    let phongThue;
+    let check = false;
+
+
+    let tempName = "";
+    ten = prompt("inputTen");
+    ten = ten.trim().toLowerCase();
+    for (let i = 0; i < ten.length; i++){
+        if (ten.charAt(i) === " " && ten.charAt(i+1) === " "){
+            continue;
+        }
+        if (i === 0 || ten.charAt(i-1)=== " "){
+            tempName += ten.charAt(i).toUpperCase();
+            continue;
+        }
+        tempName += ten.charAt(i);
+    }
+    ten = tempName;
+
+
+
+    do {
+        CMND = prompt("inputCMND");
+        if (!isNaN(CMND)){
+            CMND = Number.parseFloat(CMND);
+        }
+        if (!Number.isInteger(CMND)){
+            alert("CMND không đúng định dạng");
+            continue;
+        }
+        if (CMND < 10000000 || CMND > 99999999){
+            alert("CMND không đúng định dạng");
+            continue;
+        }
+        check = true;
+    }while (!check);
+    check = false;
+
+
+
+    do {
+        ngaySinh = prompt("inputNgaysinh");
+        if (ngaySinh.charAt(2)==="/" && ngaySinh.charAt(5)==="/"){
+            let day = ngaySinh.substring(0,2);
+            let month = ngaySinh.substring(3,5);
+            let year = ngaySinh.substring(6,10);
+            if (!isNaN(day) && !isNaN(month) && !isNaN(year)){
+                day = Number.parseFloat(day);
+                month = Number.parseFloat(month);
+                year = Number.parseFloat(year);
+                if (Number.parseFloat(day) && Number.parseFloat(month) && Number.parseFloat(year)){
+                    if (day < 32 && month < 13){
+                        check = true;
+                    }
+                }
+            }
+        }
+        if (!check){
+            alert("Bạn nhập không đúng định dạng");
+        }
+    }while (!check);
+    check = false;
+
+
+
+    do {
+        let cntAT = 0;
+        let cntDoc = 0;
+        email = prompt("inputEmail");
+        for (let i = 0; i < email.length; i++){
+            if (email.charAt(i) === "@"){
+                cntAT++;
+                for (let j = i + 1; j < email.length; j++){
+                    if (email.charAt(j) === "."){
+                        cntDoc++;
+                    }
+                }
+            }
+        }
+        if (cntAT != 1||cntDoc < 1){
+            alert("Email bạn nhập không đúng");
+        }else {
+            check = true;
+        }
+    }while (!check);
+    check = false;
+
+
+    let tempDiaChi = "";
+    diaChi = prompt("inputDiaChi");
+    diaChi = diaChi.trim().toLowerCase();
+    for (let i = 0; i < diaChi.length; i++){
+        if (diaChi.charAt(i) === " " && diaChi.charAt(i+1) === " "){
+            continue;
+        }
+        if (i === 0 || diaChi.charAt(i-1)=== " "){
+            tempDiaChi += diaChi.charAt(i).toUpperCase();
+            continue;
+        }
+        tempDiaChi += diaChi.charAt(i)
+    }
+    diaChi = tempDiaChi;
+
+
+    let tempCustomer = "";
+    customer = prompt("inputCustomer");
+    customer = customer.trim().toLowerCase();
+    for (let i = 0; i < customer.length; i++){
+        if (customer.charAt(i) === " " && customer.charAt(i+1) === " "){
+            continue;
+        }
+        if (i === 0 || customer.charAt(i-1)=== " "){
+            tempCustomer += customer.charAt(i).toUpperCase();
+            continue;
+        }
+        tempCustomer += customer.charAt(i);
+    }
+    customer = tempCustomer;
+
+
+    giamGia = prompt("inputGiamgia");
+    nguoiDi = prompt("inputNguoidi");
+
+
+    do {
+        ngayThue = prompt("inputNgaythue");
+        if (!isNaN(ngayThue)){
+            ngayThue = Number.parseFloat(ngayThue);
+            if (Number.isInteger(ngayThue && ngayThue > 0)){
+                check = true;
+            }
+        }
+        if (!check){
+            alert("Bạn nhập không phải số nguyên dương")
+        }
+    }while (!check);
+    check = false;
+
+
+    let tempDichVu = "";
+    dichVu = prompt("inputLoaiDichVu");
+    dichVu = dichVu.trim().toLowerCase();
+    for (let i = 0; i < dichVu.length; a++){
+        if (dichVu.charAt(i) === " " && dichVu.charAt(i+1) === " "){
+            continue;
+        }
+        if (i === 0 || dichVu.charAt(i-1)=== " "){
+            tempDichVu += dichVu.charAt(i).toUpperCase();
+            continue;
+        }
+        tempDichVu += dichVu.charAt(i);
+    }
+    dichVu = tempDichVu;
+
+
+    phongThue = prompt("inputPhognthue");
+
+</script>
+</body>
+</html>
