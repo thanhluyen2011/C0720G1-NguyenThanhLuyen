@@ -6,23 +6,17 @@
 </head>
 <body>
 <script>
-let tu = prompt("Nhập từ muốn kiểm tra");
-alert(isPalindrome(tu));
-function isPalindrome(s) {
-    let arr = s.split("");
-    let cnt = 0;
-    for (let i = 0; i < arr.length; i++ ){
-        if (arr[i] === arr[arr.length-(i+1)]){
-            cnt++;
-        }else {
-            return s + " không phải là từ đối xứng";
-            break;
+    let tu = prompt("Nhập từ muốn kiểm tra");
+    alert(isPalindrome(tu));
+    function isPalindrome(s) {
+        let arr = s.split("");
+        for (let i = 0; i < arr.length/2; i++ ){
+            if (arr[i] !== arr[arr.length-(i+1)]){
+                return s + " không phải là từ đối xứng";
+            }
         }
-        if (cnt === arr.length - 1){
-            return s + " là từ đối xứng";
-        }
+        return s + " là từ đối xứng";
     }
-}
 </script>
 </body>
 </html>
