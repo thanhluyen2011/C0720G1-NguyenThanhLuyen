@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,21 +12,22 @@
     let c = parseInt(prompt("Nhập số thứ ba"));
     alert(timGiaTriNhoNhat(a,b,c));
     function timGiaTriNhoNhat(number1,number2,number3) {
+        let min =0;
         if (number1 < number2){
             if (number1 < number3){
-                alert(number1 + " là số nhỏ nhất");
+                min=number1;
             }else {
-                alert(number3 + " Là số nhỏ nhất");
+                min=number3;
             }
-        }else if (number1 > number2){
+        }else {
             if (number2 > number3){
-                alert(number3 + "là số nhỏ nhất");
+                min=number3;
             }else {
-                alert(number2 + "là số nhỏ nhất")
+                min=number2;
             }
         }
+        return min;
     }
 </script>
-
 </body>
 </html>

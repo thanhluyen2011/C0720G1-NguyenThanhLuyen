@@ -5,24 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-<center>
-<form action="">
-    <input type="text" name="input" id="input">
-    <input type="button" value="Search" onclick="kiemTraSao();">
-</form>
-<p id="hienthi"></p>
-</center>
 <script>
-    function kiemTraSao() {
-        let input = document.getElementById("input").value;
+    let ngoiSaoCanTim = prompt("Nhập vào ngôi sao cần tìm");
+    alert(kiemTraSao(ngoiSaoCanTim));
+    function kiemTraSao(input) {
         let arr1 = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
         let arr2 = ["Ursa","Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa","Major","Leo"];
         for (let i = 0; i < arr1.length; i++){
             if (input === arr1[i]){
-                document.getElementById("hienthi").innerHTML = arr2[i];
+                return arr2[i];
                 break;
             }else {
-                document.getElementById("hienthi").innerHTML = "Không hiển thị ngôi sao bạn tìm kiếm";
+                return  "Không hiển thị ngôi sao bạn tìm kiếm";
             }
         }
     }
