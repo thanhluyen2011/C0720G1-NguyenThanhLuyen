@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temprature</title>
+</head>
+<body>
+<script>
+    class Temprature {
+        constructor(doC) {
+            this.doC = doC;
+        }
+        getF() {
+            let doF = (this.doC * 9) / 5 + 32;
+            return doF;
+        }
+        getK() {
+            let doK = (this.doC) + 237.15;
+            return doK;
+        }
+    }
+    let temprature = new Temprature(25);
+    alert("Độ F=:"+temprature.getF()+"\n"+"Độ K=:"+temprature.getK());
+</script>
+</body>
+</html>
