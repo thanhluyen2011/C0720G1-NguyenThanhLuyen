@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7210080-c4f7-4a6b-aa5e-bec706509b70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bai tap/BT3DienThoai.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module1_AccountName/Requiement4/Task1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module1_AccountName/Requiement4/Task1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module1_AccountName/Requiement4/Task2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module1_AccountName/Requiement4/Task2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module1_AccountName/Requiement6/Task1,2,3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +32,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Module1_AccountName" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -52,6 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598701994166</updated>
       <workItem from="1598701995393" duration="2135000" />
+      <workItem from="1598845468825" duration="33000" />
     </task>
     <servers />
   </component>
