@@ -212,11 +212,52 @@
         }
     }
     function addEmployee() {
+        let reGexEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        let reGexDay = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+        let reGexNumber = /^\d{9}$/;
+        let reGexPhone =  /^\d{10}$/;
+        let check = false;
         let ten = prompt("Họ và tên");
-        let ngaySinh = prompt("Ngày Sinh");
-        let cmnd = prompt("CMND");
-        let sdt = prompt("SĐT");
-        let email = prompt("Email");
+        let ngaySinh;
+        do {
+            ngaySinh = prompt("Ngày tháng năm sinh:");
+            if (reGexDay.test(ngaySinh)) {
+                check = true;
+            } else {
+                alert("Vui lòng nhập đúng định dạng dd/mm/yyyy");
+            }
+        } while (!check);
+        let cmnd;
+        check = false;
+        do {
+            cmnd = prompt("CMND:");
+            if (reGexNumber.test(cmnd)) {
+                check = true;
+            } else {
+                alert("CMND gồm có 9 số");
+            }
+        } while (!check);
+        //
+        let sdt;
+        check = false;
+        do {
+            sdt = prompt("Số điện thoại:");
+            if (reGexPhone.test(sdt)) {
+                check = true;
+            } else {
+                alert("số điện thoại không hợp lệ");
+            }
+        } while (!check);
+        let email;
+        check = false;
+        do {
+            emailEmployee = prompt("Email:");
+            if (reGexEmail.test(emailEmployee)) {
+                check = true;
+            } else {
+                alert("Email không hợp lệ vui lòng nhập lại");
+            }
+        } while (!check);
         let hocVan = prompt("Trình độ học vấn");
         let viTri = prompt("Ví trí làm việc");
         let newEmployee = new Employee(ten,ngaySinh,cmnd,sdt,email,hocVan,viTri);
@@ -243,10 +284,41 @@
         displayMainMenu();
     }
     function addNewCustomer() {
+        let reGexEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        let reGexDay = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+        let reGexNumber = /^\d{9}$/;
+        let check = false;
         let name = prompt("Họ tên:");
-        let identityCard = prompt("Số CMND:");
-        let dateOfBirth = prompt("Ngày tháng năm sinh:");
-        let email = prompt("Email:");
+        let identityCard;
+        do {
+            identityCard = prompt("CMND:");
+            if (reGexNumber.test(identityCard) {
+                check = true;
+            } else {
+                alert("Vui lòng nhập đúng định dạng 9 số");
+            }
+        } while (!check);
+        let dateOfBirth;
+        check = false;
+        do {
+            dateOfBirth = prompt("Ngày tháng năm sinh:");
+            if (reGexDay.test(dateOfBirth)) {
+                check = true;
+            } else {
+                alert("Vui lòng nhập đúng định dạng dd/mm/yyyy");
+            }
+        } while (!check);
+
+        let email;
+        check = false;
+        do {
+            email = prompt("Email:");
+            if (reGexEmail.test(email)) {
+                check = true;
+            } else {
+                alert("Email không hợp lệ vui lòng nhập lại");
+            }
+        } while (!check);
         let address = prompt("Địa chỉ:");
         let customer = prompt("Loại khách hàng:");
         let discount = prompt("Giảm giá:");
