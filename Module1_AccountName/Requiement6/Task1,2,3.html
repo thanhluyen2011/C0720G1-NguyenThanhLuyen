@@ -88,16 +88,14 @@
             this.typeOfRoomToRent = typeOfRoomToRent ;
         }
         checkoutRoom(){
+            let money;
             if(this.typeOfService == "Villa"){
-                let money = 500 * this.numberOfRentalDays *(1 - this.discount /100);
-                alert("Số tiền cần phải trả khi thuê villa:" + money+"$"); // em đã kiểm tra rồi đúng không nếu đúng hiển thị
+                money = 500 * this.numberOfRentalDays *(1 - this.discount /100);
                 //
             }else if(this.typeOfService == "House"){
-                let money = 300 * this.numberOfRentalDays *(1 - this.discount /100);
-                alert("Số tiền cần phải trả khi thuê house:" + money+"$");
+                money = 300 * this.numberOfRentalDays *(1 - this.discount /100);
             }else if(this.typeOfService == "Room"){
-                let money = 100 * this.numberOfRentalDays *(1 - this.discount /100);
-                alert("Số tiền cần phải trả khi thuê room:" + money+"$");
+                money = 100 * this.numberOfRentalDays *(1 - this.discount /100);
             }else{
                 alert("vui lòng nhập đúng loại dịch vụ");
             }
@@ -292,7 +290,7 @@
         let identityCard;
         do {
             identityCard = prompt("CMND:");
-            if (reGexNumber.test(identityCard) {
+            if (reGexNumber.test(identityCard)){
                 check = true;
             } else {
                 alert("Vui lòng nhập đúng định dạng 9 số");
