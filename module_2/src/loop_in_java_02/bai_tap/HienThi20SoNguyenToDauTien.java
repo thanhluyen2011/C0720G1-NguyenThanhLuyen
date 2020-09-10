@@ -1,5 +1,5 @@
 package loop_in_java_02.bai_tap;
-import java.util.Scanner;
+        import java.util.Scanner;
 public class HienThi20SoNguyenToDauTien {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

@@ -43,6 +43,7 @@ public class HienThiCacLoaiHinh {
                         }
                         System.out.println("\n");
                     }
+                    // hình tam giác cân
                     int n = 5;
                     int q = 0;
                     while (n > 0) {
