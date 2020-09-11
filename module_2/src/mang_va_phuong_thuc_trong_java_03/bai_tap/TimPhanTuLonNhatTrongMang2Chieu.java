@@ -17,7 +17,6 @@ public class TimPhanTuLonNhatTrongMang2Chieu {
                 array[i][j] = sc.nextInt();
             }
         }
-        System.out.println(Arrays.toString(array));
         double max = array[0][0];
         for (int i = 0; i < x; i++){
             for (int j = 0; j < y; j++){
