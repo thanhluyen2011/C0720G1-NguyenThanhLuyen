@@ -15,7 +15,6 @@ public class TinhTongCacSoODuongCheoCuaMaTranVuong {
             }
         }
         float sum = 0.0f;
-        float sum1= 0.0f;
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
                 if (i == j){
