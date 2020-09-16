@@ -1,4 +1,4 @@
-package access_modifier_05.bai_tap;
+package ke_thua_06.bai_tap;
 
 import java.util.Arrays;
 
@@ -81,24 +81,27 @@ class MoveablePoint extends Point{
         array[1] = getYSpeed();
         return array;
     }
-    public String toString(){
-        return super.toString() +"\t" +
-                xSpeed + "xSpeed \t" +
-                ySpeed + "ySpeed \t" +
-                Arrays.toString(getSpeed()) + "getSpeed";
-    }
-    public float[] move(){
+
+    public MoveablePoint move(){
         this.x += getXSpeed();
         this.y += getYSpeed();
-        return getXY();
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "MoveablePoint{" +
+                "xSpeed=" + xSpeed +
+                ", ySpeed=" + ySpeed +
+                '}' + super.toString();
     }
 }
-class Test{
+class Tests{
     public static void main(String[] args) {
         Point point = new Point(1,2);
         MoveablePoint moveablePoint = new MoveablePoint(1,2,3,3);
-        System.out.println(point.toString());
-        System.out.println(moveablePoint.toString());
-        System.out.println(Arrays.toString(moveablePoint.move()));
+        System.out.println(point);
+        System.out.println(moveablePoint);
+        System.out.println(moveablePoint.move());
     }
 }

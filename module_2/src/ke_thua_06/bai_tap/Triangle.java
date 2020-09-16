@@ -44,6 +44,7 @@ public class Triangle extends Shape {
         double p = getPerimeterd()/2;
         return Math.sqrt(p*(p - this.side1)*(p - this.side2)*(p - this.side3));
     }
+
     public String toString(){
         return super.toString() + "\t" +
                 "side1 = " + this.side1 +"\t" +

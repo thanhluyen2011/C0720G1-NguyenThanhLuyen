@@ -53,7 +53,7 @@ class Point3D extends Point2D{
         super.getXY();
         this.z = getZ();
     }
-    public float [] getXYZ () {
+    public float[] getXYZ () {
         float [] array = new float[3];
         array[0] = getX();
         array[1] = getY();
