@@ -2,7 +2,7 @@ package _06_ke_thua.thuc_hanh;
 
 import _07_abstract_class_va_interface.thuc_hanh.thuc_hanh_hinh_hoc.ComparableCircle;
 
-public abstract class Circle extends ke_thua_06.thuc_hanh.Shape {
+public class Circle extends Shape {
         private double radius = 1.0;
 
         public Circle() {
@@ -40,6 +40,4 @@ public abstract class Circle extends ke_thua_06.thuc_hanh.Shape {
                     + ", which is a subclass of "
                     + super.toString();
         }
-
-    public abstract int compareTo(ComparableCircle o);
 }

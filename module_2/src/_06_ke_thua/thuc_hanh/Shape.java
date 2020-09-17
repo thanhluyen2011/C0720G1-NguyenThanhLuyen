@@ -1,4 +1,4 @@
-package ke_thua_06.thuc_hanh;
+package _06_ke_thua.thuc_hanh;
 
 public class Shape {
     private String color = "green";
@@ -27,6 +27,8 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
+
+    @Override
     public String toString() {
         return "A Shape with color of "
                 + getColor()
