@@ -49,3 +49,11 @@ public class Rectangle extends Shape {
         setHeight(getHeight() + (percent/100));
     }
 }
+class RectangleTest {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(2,4);
+        System.out.println(rectangle.getArea());
+        rectangle.resize(Math.random()*100);
+        System.out.println(rectangle.getArea());
+    }
+}

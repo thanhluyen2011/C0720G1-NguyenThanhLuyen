@@ -37,4 +37,12 @@ public class Square extends Shape  {
         setEdge(getEdge() + (percent/100));
     }
 }
+class SquareTest{
+    public static void main(String[] args) {
+        Square square = new Square(2);
+        System.out.println(square.getArea());
+        square.resize(Math.random()*100);
+        System.out.println(square.getArea());
+    }
+}
 

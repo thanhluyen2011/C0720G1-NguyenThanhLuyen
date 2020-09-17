@@ -35,3 +35,11 @@ public class Circle extends Shape {
         setRadius(getRadius() + (percent/100));
     }
 }
+class CircleTest{
+    public static void main(String[] args) {
+        Circle circle = new Circle(2);
+        System.out.println(circle.getArea());
+        circle.resize(Math.random()*100);
+        System.out.println(circle.getArea());
+    }
+}
