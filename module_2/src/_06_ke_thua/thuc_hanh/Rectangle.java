@@ -1,6 +1,6 @@
 package _06_ke_thua.thuc_hanh;
 
-public class Rectangle extends ke_thua_06.thuc_hanh.Shape {
+public class Rectangle extends Shape {
     private double width = 1.0;
     private double length = 1.0;
 
