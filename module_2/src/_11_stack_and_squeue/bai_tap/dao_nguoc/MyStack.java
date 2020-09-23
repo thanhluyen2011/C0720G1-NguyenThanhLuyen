@@ -1,18 +1,22 @@
 package _11_stack_and_squeue.bai_tap.dao_nguoc;
 
-import java.util.List;
+import java.util.Collections;
 import java.util.Stack;
 
 public class MyStack {
     public static void main(String[] args) {
         Stack<Integer> listStack = new Stack<>();
-        listStack.push(1);
-        listStack.push(2);
-        listStack.push(3);
-        listStack.push(4);
-        listStack.push(5);
-        while (!listStack.isEmpty()){
-            System.out.println(listStack.pop());
+        Integer[] integers = {1,2,3,4,5};
+        for (int i = 0; i < integers.length; i++) {
+            listStack.push(integers[i]);
         }
+        System.out.println(listStack);
+        Stack<Integer> temp = new Stack<>();
+        while (!listStack.isEmpty()){
+            temp.push(listStack.pop());
+        }
+        listStack = temp;
+//        Collections.reverse(listStack);
+        System.out.println(listStack);
     }
 }

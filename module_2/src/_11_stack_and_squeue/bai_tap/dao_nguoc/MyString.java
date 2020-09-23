@@ -6,11 +6,16 @@ public class MyString {
     public static void main(String[] args) {
         String mWork = "thanh luyen";
         Stack<Character> listStack = new Stack<>();
-        for (Character i = 0; i < mWork.length(); i++) {
+        for (int i = 0; i < mWork.length(); i++) {
             listStack.push(mWork.charAt(i));
         }
-        for (int i = 0; i < mWork.length(); i++) {
-            System.out.print(listStack.pop());
+        System.out.println(listStack);
+        Stack<Character> temp = new Stack<>();
+        while (!listStack.isEmpty()){
+            temp.push(listStack.pop());
         }
+        listStack = temp;
+        System.out.println(listStack);
+
     }
 }
