@@ -6,32 +6,33 @@ public class Queue {
     static public int size = 0;
     public void enQueue(int data) {
         Node node = new Node(data);
-        if(front == null){
+        if (front == null) {
             front = rear = node;
         } else {
-            rear.link = front;
-            size++;
+            rear.link = node;
+            node.link = front;
+            rear = node;
         }
+        size++;
     }
-    public void deQueue(){
-        if(front == null){
-            throw new UnsupportedOperationException("Empty queue, cant deQueue");
-        } else if(front == rear){
+
+    public void deQueue() {
+        if (front == null) {
+            System.out.println("hàng chờ trống");
+        } else if (front == rear) {
             front = rear = null;
         } else {
-            front = rear.link;
-            rear.link = front;
+            front = front.link;
         }
-        Queue.size--;
+        size--;
     }
-    public String dislayQueue(){
-        String str = "[";
-        Node temp  = front;
-        for (int i = 0; i < Queue.size - 1; i++){
-            str += temp.data + ", ";
+    public void display(){
+        String str = "";
+        Node temp = front;
+        for (int i = 0; i < size;i++){
+            str += temp.data + " ";
             temp = temp.link;
         }
-        str += rear.data + "]";
-        return str;
+        System.out.println(str);
     }
 }
