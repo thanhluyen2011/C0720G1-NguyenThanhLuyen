@@ -35,7 +35,7 @@ public class ProductManager{
                     displayProduct();
                     break;
                 default:
-                    System.out.println("bạn nhập sai");
+                    System.out.println("bạn nhập sai.Bạn hãy nhập 1 -> 6");
             }
     }
     public void addProduct(){
