@@ -101,9 +101,7 @@ public class ProductManager{
         displayMenu();
     }
     public void displayProduct(){
-        for (int i = 0; i < productArrayList.size(); i++){
-            System.out.println(productArrayList.get(i).getId() + " " + productArrayList.get(i).getName() + " " + productArrayList.get(i).getPrice());
-        }
+            System.out.println(productArrayList.toString());
         displayMenu();
     }
 }
