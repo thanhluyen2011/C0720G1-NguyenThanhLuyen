@@ -88,8 +88,8 @@ public class ProductManager{
         displayMenu();
     }
     public void sort(){
-        System.out.println("1.bạn muốn sắp xếp theo giá tăng dần" +
-                "\n 2.bạn muốn sắp xếp theo giá giảm dần");
+        System.out.println("1.sắp xếp theo giá tăng dần" +
+                "\n 2.sắp xếp theo giá giảm dần");
         int sort = sc.nextInt();
         switch (sort){
             case 1:
