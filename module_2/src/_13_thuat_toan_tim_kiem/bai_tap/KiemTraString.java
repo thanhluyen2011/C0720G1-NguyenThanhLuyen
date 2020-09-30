@@ -23,11 +23,9 @@ public class KiemTraString {
             }
             list.clear();
         }
-
         for (Character ch : max) {
             System.out.print(ch);
         }
-
         System.out.println();
     }
 }

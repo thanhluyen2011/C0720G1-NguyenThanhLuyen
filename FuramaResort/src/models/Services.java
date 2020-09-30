@@ -1,5 +1,5 @@
 package models;
 
-public class Services {
+public abstract class Services {
     
 }
