@@ -70,7 +70,9 @@ public class ProductTest {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("1.Thêm sản phẩm" +
-                    "\n2.Hiển thị danh sách sản phẩm" + "\n3.t Tìm theo Id" + "\n4.Exit");
+                    "\n2.Hiển thị danh sách sản phẩm" +
+                    "\n3.t Tìm theo Id" +
+                    "\n4.Exit");
             try {
                 switch (Integer.parseInt(sc.nextLine())) {
                     case 1:
