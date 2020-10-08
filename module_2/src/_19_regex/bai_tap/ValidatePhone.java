@@ -19,7 +19,7 @@ public class ValidatePhone {
                 System.out.println("True");
                 break;
             }else {
-                System.out.println("Falsef");
+                System.out.println("False");
             }
         }
 
