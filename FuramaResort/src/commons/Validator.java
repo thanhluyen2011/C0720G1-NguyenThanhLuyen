@@ -10,6 +10,7 @@ public class Validator {
     public static final String CUSTOMER_EMAIL = "^\\w{3,}@[a-zA-Z]{3,5}\\.[a-zA-Z]{2,3}$";
     public static final String CUSTOMER_CMND = "^(\\d{3}[\\s]){2}\\d{3}$";
     public static final String CUSTOMER_DAY_OF_BIRTH = "^([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]\\d{4}$";
+
     public static boolean regexNameService(String name) {
         final String REGEXNAMEVILLA = "^[A-Z]{1}[a-z]*";
         Pattern pattern = Pattern.compile(REGEXNAMEVILLA);
@@ -74,6 +75,7 @@ public class Validator {
         }
         return check;
     }
+
     public static boolean isValiNameCustomer(String name) throws NameException {
         Pattern pattern = Pattern.compile(CUSTOMER_NAME);
         Matcher matcher = pattern.matcher(name);
@@ -81,7 +83,7 @@ public class Validator {
         if (!check) {
             throw new NameException();
         }
-        return check;
+        return true;
     }
 
     public static boolean isValiEmaiCustomer(String email) throws EmailException {
@@ -91,7 +93,7 @@ public class Validator {
         if (!check) {
             throw new EmailException();
         }
-        return check;
+        return true;
     }
 
     public static boolean isValiSexCustomer(String sex) throws GenderException {
@@ -100,7 +102,7 @@ public class Validator {
         if (!check) {
             throw new GenderException();
         }
-        return check;
+        return true;
     }
 
     public static boolean isValiCMND(String cmnd) throws IdCardException {
@@ -124,10 +126,10 @@ public class Validator {
                 check = false;
                 throw new BirthdayException();
             }
-        }else {
+        } else {
             throw new BirthdayException();
         }
-        return check;
+        return true;
     }
 
 }

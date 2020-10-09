@@ -6,20 +6,16 @@ import models.House;
 import models.Room;
 import models.Villa;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class MainController {
     private static final String HOUSE_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\House.csv";
     private static final String ROOM_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\Room.csv";
     private static final String VILLA_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\Villa.csv";
     private static final String CUSTOMER_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\Customer.csv";
-    private static final String COMA = "," ;
+    private static final String ADDBOOKING_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\AddBooking.csv";
+    private static final String COMA = ",";
 
     public static void main(String[] args) throws IdCardException, GenderException, BirthdayException, EmailException {
         displayMainMenu();
@@ -46,12 +42,200 @@ public class MainController {
                 showServices();
                 displayMainMenu();
                 break;
-            case 3 :
+            case 3:
                 addNewCustomer();
+                displayMainMenu();
+                break;
+            case 4:
+                showCustomer();
+                displayMainMenu();
+                break;
+            case 5:
+                addNewBooking();
                 displayMainMenu();
                 break;
         }
     }
+
+    public static void addNewBooking() {
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            FileReader fileReader = new FileReader(CUSTOMER_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            Customer customer;
+            while ((line = bufferedReader.readLine()) != null) {
+                temp = line.split(COMA);
+                customer = new Customer(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], null);
+                customerList.add(customer);
+            }
+            Collections.sort(customerList);
+            for (int i = 0; i < customerList.size(); i++) {
+                System.out.print(i + 1 + " : ");
+                customerList.get(i).showInfor();
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("chọn khách hàng: ");
+        int numberCustomer = Integer.parseInt(scanner.nextLine());
+        customerList.get(numberCustomer - 1).showInfor();
+        System.out.println("1.Booking Villa" + "\n"
+                + "2.Booking House" + "\n"
+                + "3.Booking Room");
+        System.out.print("chọn dịch vụ: ");
+        int d = Integer.parseInt(scanner.nextLine());
+        switch (d) {
+            case 1: {
+                List<Villa> villaList = new ArrayList<>();
+                try {
+                    FileReader fileReader = new FileReader(VILLA_FILE);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String line;
+                    String[] temp;
+                    Villa villa;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        temp = line.split(COMA);
+                        villa = new Villa(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
+                        villaList.add(villa);
+                    }
+                    for (int i = 0; i < villaList.size(); i++) {
+                        System.out.print(i + 1 + ": ");
+                        villaList.get(i).showInfor();
+                    }
+                    bufferedReader.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    e.printStackTrace();
+                } catch (IOException e) {
+                }
+                System.out.print("chọn loại Villa: ");
+                int numberVilla = Integer.parseInt(scanner.nextLine());
+                villaList.get(numberVilla - 1).showInfor();
+                customerList.get(numberCustomer - 1).setServices(villaList.get(numberVilla - 1));
+                try {
+                    String line = customerList.get(numberCustomer - 1).toString();
+                    FileWriter fileWriter = new FileWriter(ADDBOOKING_FILE, true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
+                    bufferedWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case 2: {
+                List<House> houseList = new ArrayList<>();
+                try {
+                    FileReader fileReader = new FileReader(HOUSE_FILE);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String line;
+                    House house;
+                    String[] temp;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        temp = line.split(COMA);
+                        house = new House(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
+                        houseList.add(house);
+                    }
+                    for (int i = 0; i < houseList.size(); i++) {
+                        System.out.println(i + 1 + ": ");
+                        houseList.get(i).showInfor();
+                    }
+                    bufferedReader.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.print("chọn loại House: ");
+                int numberHouse = Integer.parseInt(scanner.nextLine());
+                houseList.get(numberHouse - 1).showInfor();
+                customerList.get(numberCustomer - 1).setServices(houseList.get(numberHouse - 1));
+                String line = customerList.toString();
+                try {
+                    FileWriter fileWriter = new FileWriter(ADDBOOKING_FILE, true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
+                    bufferedWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case 3:
+                List<Room> roomList = new ArrayList<>();
+                try {
+                    FileReader fileReader = new FileReader(ROOM_FILE);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String line;
+                    String[] temp;
+                    Room room;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        temp = line.split(COMA);
+                        room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+                        roomList.add(room);
+                    }
+                    for (int i = 0; i < roomList.size(); i++) {
+                        System.out.print(i + 1 + ": ");
+                        roomList.get(i).showInfor();
+                    }
+                    bufferedReader.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.print("chọn loại Room: ");
+                int numberRoom = Integer.parseInt(scanner.nextLine());
+                roomList.get(numberRoom - 1).showInfor();
+                customerList.get(numberCustomer - 1).setServices(roomList.get(numberRoom - 1));
+                String line = customerList.toString();
+                try {
+                    FileWriter fileWriter = new FileWriter(ADDBOOKING_FILE,true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    bufferedWriter.write(line);
+                    bufferedWriter.newLine();
+                    bufferedWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+    }
+
+    public static void showCustomer() {
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            FileReader fileReader = new FileReader(CUSTOMER_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            Customer customer;
+            while ((line = bufferedReader.readLine()) != null) {
+                temp = line.split(COMA);
+                customer = new Customer(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], null);
+                customerList.add(customer);
+            }
+            Collections.sort(customerList);
+            for (int i = 0; i < customerList.size(); i++) {
+                System.out.print(i + 1 + ": ");
+                customerList.get(i).showInfor();
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void addNewCustomer() throws BirthdayException, GenderException, IdCardException, EmailException {
         String name;
         String dateOfBirth;
@@ -65,13 +249,13 @@ public class MainController {
         boolean check;
         System.out.println("Nhập thông tin Customer");
         System.out.println("Nhập tên");
-        while (true){
+        while (true) {
             try {
                 name = scanner.nextLine();
                 check = Validator.isValiNameCustomer(name);
-                if (check){
+                if (check) {
                     break;
-                }else {
+                } else {
                     System.out.println("Nhập lại");
                 }
             } catch (Exception e) {
@@ -79,44 +263,44 @@ public class MainController {
             }
         }
         System.out.println("Nhập ngày tháng năm sinh");
-        while (true){
+        while (true) {
             dateOfBirth = scanner.nextLine();
             check = Validator.isValiDayOfBirth(dateOfBirth);
-            if (check){
+            if (check) {
                 break;
-            }else {
+            } else {
                 System.out.println("Nhập lại");
             }
         }
         System.out.println("Nhập giới tính");
-        while (true){
+        while (true) {
             sex = scanner.nextLine();
             check = Validator.isValiSexCustomer(sex);
-            if (check){
+            if (check) {
                 break;
-            }else {
+            } else {
                 System.out.println("Nhập lại");
             }
         }
         System.out.println("cmnd");
-        while (true){
+        while (true) {
             cmnd = scanner.nextLine();
             check = Validator.isValiCMND(cmnd);
-            if (check){
+            if (check) {
                 break;
-            }else {
+            } else {
                 System.out.println("Nhập lại");
             }
         }
         System.out.println("Số điện thoại");
         phone = scanner.nextLine();
         System.out.println("Nhập email");
-        while (true){
+        while (true) {
             email = scanner.nextLine();
             check = Validator.isValiEmaiCustomer(email);
-            if (check){
+            if (check) {
                 break;
-            }else {
+            } else {
                 System.out.println("Nhập lại");
             }
         }
@@ -124,7 +308,7 @@ public class MainController {
         typeOfCustomer = scanner.nextLine();
         System.out.println("Nhập địa chỉ");
         address = scanner.nextLine();
-        Customer customer = new Customer(name,dateOfBirth,sex,cmnd,phone,email,typeOfCustomer,address,null);
+        Customer customer = new Customer(name, dateOfBirth, sex, cmnd, phone, email, typeOfCustomer, address, null);
         String line =
                 customer.getName() + COMA +
                         customer.getDateOfBirth() + COMA +
@@ -135,8 +319,9 @@ public class MainController {
                         customer.getTypeOfCustomer() + COMA +
                         customer.getAddress() + COMA +
                         customer.getServices();
-        FileUtils.writeFile(line,CUSTOMER_FILE);
+        FileUtils.writeFile(line, CUSTOMER_FILE);
     }
+
     public static void addNewServices() throws IdCardException, GenderException, BirthdayException, EmailException {
         System.out.println("1.Add New Villa" + "\n"
                 + "2.Add New House" + "\n"
@@ -152,16 +337,16 @@ public class MainController {
             case 1:
                 addVilla();
                 break;
-            case 2 :
+            case 2:
                 addHouse();
                 break;
-            case 3 :
+            case 3:
                 addRoom();
                 break;
-            case 4 :
+            case 4:
                 displayMainMenu();
                 break;
-            case 5 :
+            case 5:
                 System.exit(0);
         }
     }
@@ -273,7 +458,7 @@ public class MainController {
                     System.out.println("Nhập sai.Nhập lại :");
                 }
             }
-            Villa villa = new Villa(id,name,area,cost,peopleMax,rentalType,standard,comment,areaPool,floors);
+            Villa villa = new Villa(id, name, area, cost, peopleMax, rentalType, standard, comment, areaPool, floors);
             String line =
                     villa.getId() + COMA +
                             villa.getName() + COMA +
@@ -285,12 +470,13 @@ public class MainController {
                             villa.getComment() + COMA +
                             villa.getAreaPool() + COMA +
                             villa.getFloors();
-            FileUtils.writeFile(line,VILLA_FILE);
+            FileUtils.writeFile(line, VILLA_FILE);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static void addHouse(){
+
+    public static void addHouse() {
         String id;
         String name;
         String area;
@@ -386,7 +572,7 @@ public class MainController {
                     System.out.println("Nhập sai.Nhập lại :");
                 }
             }
-            House house = new House(id,name,area,cost,peopleMax,rentalType,standard,comment,floors);
+            House house = new House(id, name, area, cost, peopleMax, rentalType, standard, comment, floors);
             String line =
                     house.getId() + COMA +
                             house.getName() + COMA +
@@ -397,12 +583,13 @@ public class MainController {
                             house.getStandard() + COMA +
                             house.getComment() + COMA +
                             house.getFloors();
-            FileUtils.writeFile(line,HOUSE_FILE);
+            FileUtils.writeFile(line, HOUSE_FILE);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static void addRoom(){
+
+    public static void addRoom() {
         String id;
         String name;
         String area;
@@ -475,7 +662,7 @@ public class MainController {
                 }
             }
             System.out.println("Nhập dịch vụ kèm");
-            while (true){
+            while (true) {
                 free = sc.nextLine();
                 check = Validator.regexFree(free);
                 if (check) {
@@ -484,7 +671,7 @@ public class MainController {
                     System.out.println("Nhập sai.Nhập lại:");
                 }
             }
-            Room room = new Room(id,name,area,cost,peopleMax,rentalType,free);
+            Room room = new Room(id, name, area, cost, peopleMax, rentalType, free);
             String line =
                     room.getId() + COMA +
                             room.getName() + COMA +
@@ -493,11 +680,12 @@ public class MainController {
                             room.getPeople() + COMA +
                             room.getRentalType() + COMA +
                             room.getFree();
-            FileUtils.writeFile(line,ROOM_FILE);
+            FileUtils.writeFile(line, ROOM_FILE);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static void showServices() throws IdCardException, GenderException, BirthdayException, EmailException {
         System.out.println("1.Show all Villa" + "\n"
                 + "2.Show all House" + "\n"
@@ -516,18 +704,19 @@ public class MainController {
                 showAllVilla();
                 displayMainMenu();
                 break;
-            case 2 :
+            case 2:
                 showAllHouse();
                 displayMainMenu();
                 break;
-            case 3 :
+            case 3:
                 showAllRoom();
                 displayMainMenu();
                 break;
 
         }
     }
-    public static void showAllVilla(){
+
+    public static void showAllVilla() {
         List<Villa> villaList = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(VILLA_FILE);
@@ -535,12 +724,12 @@ public class MainController {
             String line;
             String[] temp;
             Villa villa;
-            while ((line = bufferedReader.readLine())!=null){
+            while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                villa = new Villa(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],temp[8],temp[9]);
+                villa = new Villa(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
                 villaList.add(villa);
             }
-            for (Villa villa1: villaList){
+            for (Villa villa1 : villaList) {
                 villa1.showInfor();
             }
             bufferedReader.close();
@@ -550,7 +739,8 @@ public class MainController {
             e.printStackTrace();
         }
     }
-    public static void showAllHouse(){
+
+    public static void showAllHouse() {
         List<House> houseList = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(HOUSE_FILE);
@@ -558,12 +748,12 @@ public class MainController {
             String line;
             House house;
             String[] temp;
-            while ((line = bufferedReader.readLine())!=null){
+            while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                house = new House(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],temp[8]);
+                house = new House(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
                 houseList.add(house);
             }
-            for (House house1:houseList){
+            for (House house1 : houseList) {
                 house1.showInfor();
             }
             bufferedReader.close();
@@ -573,7 +763,8 @@ public class MainController {
             e.printStackTrace();
         }
     }
-    public static void showAllRoom(){
+
+    public static void showAllRoom() {
         List<Room> roomList = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(ROOM_FILE);
@@ -581,12 +772,12 @@ public class MainController {
             String line;
             String[] temp;
             Room room;
-            while ((line = bufferedReader.readLine())!=null){
+            while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                room = new Room(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]);
+                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
                 roomList.add(room);
             }
-            for (Room room1:roomList){
+            for (Room room1 : roomList) {
                 room1.showInfor();
             }
             bufferedReader.close();

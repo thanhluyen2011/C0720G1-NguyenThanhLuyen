@@ -1,6 +1,6 @@
 package models;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
     String name;
     String dateOfBirth;
     String sex;
@@ -112,7 +112,13 @@ public class Customer {
     public void showInfor(){
         System.out.println(this.toString());
     }
-    public void showInformationCustomer(){
-
+    public int compareTo(Customer name) {
+        int swap = this.name.compareTo(name.name);
+        if (swap == 0){
+            int yearCustomer1 = Integer.parseInt(this.dateOfBirth.split("/")[2]);
+            int yearCustomer2 = Integer.parseInt(name.dateOfBirth.split("/")[2]);
+            swap = yearCustomer1 - yearCustomer2;
+        }
+        return swap;
     }
 }
