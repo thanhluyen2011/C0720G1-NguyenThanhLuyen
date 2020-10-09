@@ -1,10 +1,7 @@
 package controllers;
 
 import commons.*;
-import models.Customer;
-import models.House;
-import models.Room;
-import models.Villa;
+import models.*;
 
 import java.io.*;
 import java.util.*;
@@ -179,7 +176,7 @@ public class MainController {
                     Room room;
                     while ((line = bufferedReader.readLine()) != null) {
                         temp = line.split(COMA);
-                        room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+                        room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6],temp[7],temp[8]));
                         roomList.add(room);
                     }
                     for (int i = 0; i < roomList.size(); i++) {
@@ -596,7 +593,6 @@ public class MainController {
         String cost;
         String peopleMax;
         String rentalType;
-        String free;
         try {
             Scanner sc = new Scanner(System.in);
             boolean check;
@@ -662,16 +658,41 @@ public class MainController {
                 }
             }
             System.out.println("Nhập dịch vụ kèm");
-            while (true) {
-                free = sc.nextLine();
-                check = Validator.regexFree(free);
-                if (check) {
+            System.out.println("Nhập tên dịch vụ đính kèm");
+            String nameFree;
+            while (true){
+                nameFree = sc.nextLine();
+                check = Validator.isValiNameCustomer(name);
+                if (check){
                     break;
-                } else {
-                    System.out.println("Nhập sai.Nhập lại:");
+                }else{
+                    System.out.println("Nhập sai.Nhập lại");
                 }
             }
-            Room room = new Room(id, name, area, cost, peopleMax, rentalType, free);
+            String unit;
+            System.out.println("Nhập đơn vị đi kèm");
+            while (true){
+                unit = sc.nextLine();
+                check = Validator.isValiNameCustomer(unit);
+                if (check) {
+                    break;
+                }else {
+                    System.out.println("Nhập sai.Nhập lại");
+                }
+            }
+            String price;
+            System.out.println("Nhập giá ");
+            while (true){
+                price = sc.nextLine();
+                check = Validator.regexCost(price);
+                if(check){
+                    break;
+                }else {
+                    System.out.println("Nhập sai.Nhập lại");
+                }
+            }
+            FreeSevice freeSevice = new FreeSevice(nameFree,unit,price);
+            Room room = new Room(id, name, area, cost, peopleMax, rentalType, freeSevice);
             String line =
                     room.getId() + COMA +
                             room.getName() + COMA +
@@ -679,7 +700,9 @@ public class MainController {
                             room.getCost() + COMA +
                             room.getPeople() + COMA +
                             room.getRentalType() + COMA +
-                            room.getFree();
+                            room.getFree().getName() + COMA +
+                    room.getFree().getUnit() + COMA +
+                    room.getFree().getPrice();
             FileUtils.writeFile(line, ROOM_FILE);
         } catch (Exception e) {
             e.printStackTrace();
@@ -774,7 +797,7 @@ public class MainController {
             Room room;
             while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6],temp[7],temp[8]));
                 roomList.add(room);
             }
             for (Room room1 : roomList) {
