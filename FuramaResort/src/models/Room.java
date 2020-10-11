@@ -30,7 +30,7 @@ public class Room extends Services {
     public String toString() {
         return "Room{" +
                 super.toString() + '\'' +
-                " free :" + free +
+                " free : (" + free + " ) " +
                 '}';
     }
 }

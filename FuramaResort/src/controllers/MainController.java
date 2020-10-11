@@ -1,6 +1,7 @@
 package controllers;
 
 import commons.*;
+import data.Employee;
 import models.*;
 
 import java.io.*;
@@ -13,23 +14,25 @@ public class MainController {
     private static final String CUSTOMER_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\Customer.csv";
     private static final String ADDBOOKING_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\AddBooking.csv";
     private static final String COMA = ",";
+    private static final String EMPLOYEE_FILE = "D:\\C0720G1-NguyenThanhLuyen\\FuramaResort\\src\\views\\Employee.csv";
 
     public static void main(String[] args) throws IdCardException, GenderException, BirthdayException, EmailException {
         displayMainMenu();
     }
 
     public static void displayMainMenu() throws IdCardException, GenderException, BirthdayException, EmailException {
-        System.out.println("1. Add New Services" + "\n"
-                + "2.Show Services" + "\n"
-                + "3.Add New Customer" + "\n"
-                + "4.Show Information of Customer" + "\n"
-                + "5.Add New Booking" + "\n"
-                + "6.Show Information of Employee" + "\n"
-                + "7.Exit");
+        System.out.println("1. Add New Services\n"
+                + "2.Show Services\n"
+                + "3.Add New Customer\n"
+                + "4.Show Information of Customer\n"
+                + "5.Add New Booking\n"
+                + "6.Show Information of Employee\n"
+                + "7.Show list lined up\n"
+                + "8.search Employee \n"
+                + "9.Exit");
         System.out.print("nhập sự lựa chọn của bạn: ");
         Scanner scanner = new Scanner(System.in);
         int choose = scanner.nextInt();
-
         switch (choose) {
             case 1:
                 addNewServices();
@@ -51,9 +54,69 @@ public class MainController {
                 addNewBooking();
                 displayMainMenu();
                 break;
+            case 6 :
+                showInformationOfEmployee();
+                displayMainMenu();
+                break;
+            case 7 :
+                showListLinedUp();
+                displayMainMenu();
+                break;
+            case 8 :
+                searchEmployee();
+                displayMainMenu();
+                break;
+            case 9 :
+                System.exit(0);
         }
     }
-
+    public static void searchEmployee(){
+        FilingCabinets.employeeProfileSearch();
+    }
+    public static void showListLinedUp(){
+        Queue<Customer> queue = new LinkedList<>();
+        try{
+            FileReader fileReader = new FileReader(CUSTOMER_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            Customer customer;
+            while ((line = bufferedReader.readLine()) != null){
+                temp = line.split(COMA);
+                customer = new Customer(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],null);
+                queue.add(customer);
+            }
+            while (!queue.isEmpty()){
+                System.out.println(queue.poll());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void showInformationOfEmployee(){
+        Map<Integer, Employee> map = new TreeMap<>();
+        try {
+            FileReader fileReader = new FileReader(EMPLOYEE_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            Employee employee;
+            while ((line = bufferedReader.readLine()) != null){
+                temp = line.split(COMA);
+                employee = new Employee(temp[0],temp[1],temp[2],temp[3]);
+                map.put((Integer.parseInt(employee.getId())),employee);
+            }
+            for (Map.Entry<Integer, Employee> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void addNewBooking() {
         List<Customer> customerList = new ArrayList<>();
         try {
@@ -176,7 +239,7 @@ public class MainController {
                     Room room;
                     while ((line = bufferedReader.readLine()) != null) {
                         temp = line.split(COMA);
-                        room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6],temp[7],temp[8]));
+                        room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6], temp[7], temp[8]));
                         roomList.add(room);
                     }
                     for (int i = 0; i < roomList.size(); i++) {
@@ -195,7 +258,7 @@ public class MainController {
                 customerList.get(numberCustomer - 1).setServices(roomList.get(numberRoom - 1));
                 String line = customerList.toString();
                 try {
-                    FileWriter fileWriter = new FileWriter(ADDBOOKING_FILE,true);
+                    FileWriter fileWriter = new FileWriter(ADDBOOKING_FILE, true);
                     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                     bufferedWriter.write(line);
                     bufferedWriter.newLine();
@@ -222,7 +285,7 @@ public class MainController {
             }
             Collections.sort(customerList);
             for (int i = 0; i < customerList.size(); i++) {
-                System.out.print(i + 1 + ": ");
+                System.out.print(i + 1 + " : ");
                 customerList.get(i).showInfor();
             }
             bufferedReader.close();
@@ -660,38 +723,38 @@ public class MainController {
             System.out.println("Nhập dịch vụ kèm");
             System.out.println("Nhập tên dịch vụ đính kèm");
             String nameFree;
-            while (true){
+            while (true) {
                 nameFree = sc.nextLine();
                 check = Validator.isValiNameCustomer(name);
-                if (check){
+                if (check) {
                     break;
-                }else{
+                } else {
                     System.out.println("Nhập sai.Nhập lại");
                 }
             }
             String unit;
             System.out.println("Nhập đơn vị đi kèm");
-            while (true){
+            while (true) {
                 unit = sc.nextLine();
-                check = Validator.isValiNameCustomer(unit);
+                check = Validator.regexFree(unit);
                 if (check) {
                     break;
-                }else {
+                } else {
                     System.out.println("Nhập sai.Nhập lại");
                 }
             }
             String price;
             System.out.println("Nhập giá ");
-            while (true){
+            while (true) {
                 price = sc.nextLine();
                 check = Validator.regexCost(price);
-                if(check){
+                if (check) {
                     break;
-                }else {
+                } else {
                     System.out.println("Nhập sai.Nhập lại");
                 }
             }
-            FreeSevice freeSevice = new FreeSevice(nameFree,unit,price);
+            FreeSevice freeSevice = new FreeSevice(nameFree, unit, price);
             Room room = new Room(id, name, area, cost, peopleMax, rentalType, freeSevice);
             String line =
                     room.getId() + COMA +
@@ -701,8 +764,8 @@ public class MainController {
                             room.getPeople() + COMA +
                             room.getRentalType() + COMA +
                             room.getFree().getName() + COMA +
-                    room.getFree().getUnit() + COMA +
-                    room.getFree().getPrice();
+                            room.getFree().getUnit() + COMA +
+                            room.getFree().getPrice();
             FileUtils.writeFile(line, ROOM_FILE);
         } catch (Exception e) {
             e.printStackTrace();
@@ -725,17 +788,118 @@ public class MainController {
         switch (d) {
             case 1:
                 showAllVilla();
-                displayMainMenu();
+                showServices();
                 break;
             case 2:
                 showAllHouse();
-                displayMainMenu();
+                showServices();
                 break;
             case 3:
                 showAllRoom();
+                showServices();
+                break;
+            case 4:
+                showAllNameVillaNotDuplicate();
+                showServices();
+                break;
+            case 5:
+                showAllNameHouseNotDuplicate();
+                showServices();
+                break;
+            case 6:
+                showAllNameRoomNotDuplicate();
+                showServices();
+                break;
+            case 7:
                 displayMainMenu();
                 break;
+            case 8:
+                System.exit(0);
 
+        }
+    }
+
+    public static void showAllNameRoomNotDuplicate() {
+        List<Room> list = new ArrayList<>();
+        try {
+            FileReader fileReader = new FileReader(ROOM_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            Room room;
+            while ((line = bufferedReader.readLine()) != null) {
+                temp = line.split(COMA);
+                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6], temp[7], temp[8]));
+                list.add(room);
+            }
+            Set<String> treeSet = new TreeSet<>();
+            for (Room room1 : list) {
+                treeSet.add(room1.getName());
+            }
+            for (String string : treeSet) {
+                System.out.println(string);
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showAllNameHouseNotDuplicate() {
+        List<House> list = new ArrayList<>();
+        try {
+            FileReader fileReader = new FileReader(ROOM_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            House house;
+            while ((line = bufferedReader.readLine()) != null) {
+                temp = line.split(COMA);
+                house = new House(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
+                list.add(house);
+            }
+            Set<String> treeSet = new TreeSet<>();
+            for (House house1 : list) {
+                treeSet.add(house1.getName());
+            }
+            for (String string : treeSet) {
+                System.out.println(string);
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showAllNameVillaNotDuplicate() {
+        List<Villa> list = new ArrayList<>();
+        try {
+            FileReader fileReader = new FileReader(VILLA_FILE);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] temp;
+            Villa villa;
+            while ((line = bufferedReader.readLine()) != null) {
+                temp = line.split(COMA);
+                villa = new Villa(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9]);
+                list.add(villa);
+            }
+            Set<String> treeSet = new TreeSet<>();
+            for (Villa villa1 : list) {
+                treeSet.add(villa1.getName());
+            }
+            for (String string : treeSet) {
+                System.out.println(string);
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -797,7 +961,7 @@ public class MainController {
             Room room;
             while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6],temp[7],temp[8]));
+                room = new Room(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], new FreeSevice(temp[6], temp[7], temp[8]));
                 roomList.add(room);
             }
             for (Room room1 : roomList) {
@@ -810,5 +974,4 @@ public class MainController {
             e.printStackTrace();
         }
     }
-
 }

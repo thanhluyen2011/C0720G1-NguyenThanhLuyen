@@ -37,7 +37,7 @@ public class FileUtils {
 //        }
 //    }
 //
-    public static void read(String fileName) {
+    public static List<String> read(String fileName) {
         List<String> listStr = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(fileName);
@@ -59,6 +59,7 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return listStr;
     }
 
 }
