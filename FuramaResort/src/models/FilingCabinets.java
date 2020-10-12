@@ -38,10 +38,10 @@ public class FilingCabinets {
         readFileEmpoyee();
         int size = listStack.size();
         boolean flag = false;
-        System.out.print("Nhập tên bạn muốn tìm hoặc id:");
+        System.out.print("Nhập tên bạn muốn tìm:");
         String input = scanner.nextLine();
         for (int i = 0; i < size; i++) {
-            if (listStack.peek().getId().equals(input)) { //001
+            if (listStack.peek().getName().equals(input)) { //001
                 System.out.println(listStack.pop());
                 flag = true;
                 continue;

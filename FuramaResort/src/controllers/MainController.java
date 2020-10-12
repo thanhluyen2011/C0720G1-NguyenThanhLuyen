@@ -172,7 +172,8 @@ public class MainController {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     e.printStackTrace();
-                } catch (IOException e) {
+                } catch (IOException e){
+                    e.getMessage();
                 }
                 System.out.print("chọn loại Villa: ");
                 int numberVilla = Integer.parseInt(scanner.nextLine());
