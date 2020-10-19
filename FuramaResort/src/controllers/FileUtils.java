@@ -46,13 +46,6 @@ public class FileUtils {
             while ((line = bufferedReader.readLine()) != null) {
                 listStr.add(line);
             }
-            Collections.sort(listStr);
-            Iterator itr = listStr.iterator();
-            int i = 0;
-            while (itr.hasNext()) {
-                System.out.println((i + 1) + " : " + itr.next());
-                i++;
-            }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

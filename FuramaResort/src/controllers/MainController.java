@@ -1,7 +1,9 @@
 package controllers;
+
 import commons.*;
 import data.Employee;
 import models.*;
+
 import java.io.*;
 import java.util.*;
 
@@ -37,6 +39,8 @@ public class MainController {
                 displayMainMenu();
                 break;
             case 2:
+
+
                 showServices();
                 displayMainMenu();
                 break;
@@ -52,39 +56,41 @@ public class MainController {
                 addNewBooking();
                 displayMainMenu();
                 break;
-            case 6 :
+            case 6:
                 showInformationOfEmployee();
                 displayMainMenu();
                 break;
-            case 7 :
+            case 7:
                 showListLinedUp();
                 displayMainMenu();
                 break;
-            case 8 :
+            case 8:
                 searchEmployee();
                 displayMainMenu();
                 break;
-            case 9 :
+            case 9:
                 System.exit(0);
         }
     }
-    public static void searchEmployee(){
+
+    public static void searchEmployee() {
         FilingCabinets.employeeProfileSearch();
     }
-    public static void showListLinedUp(){
+
+    public static void showListLinedUp() {
         Queue<Customer> queue = new LinkedList<>();
-        try{
+        try {
             FileReader fileReader = new FileReader(CUSTOMER_FILE);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             String[] temp;
             Customer customer;
-            while ((line = bufferedReader.readLine()) != null){
+            while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                customer = new Customer(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5],temp[6],temp[7],null);
+                customer = new Customer(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], null);
                 queue.add(customer);
             }
-            while (!queue.isEmpty()){
+            while (!queue.isEmpty()) {
                 System.out.println(queue.poll());
             }
         } catch (FileNotFoundException e) {
@@ -93,7 +99,8 @@ public class MainController {
             e.printStackTrace();
         }
     }
-    public static void showInformationOfEmployee(){
+
+    public static void showInformationOfEmployee() {
         Map<Integer, Employee> map = new TreeMap<>();
         try {
             FileReader fileReader = new FileReader(EMPLOYEE_FILE);
@@ -101,10 +108,10 @@ public class MainController {
             String line;
             String[] temp;
             Employee employee;
-            while ((line = bufferedReader.readLine()) != null){
+            while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(COMA);
-                employee = new Employee(temp[0],temp[1],temp[2],temp[3]);
-                map.put((Integer.parseInt(employee.getId())),employee);
+                employee = new Employee(temp[0], temp[1], temp[2], temp[3]);
+                map.put((Integer.parseInt(employee.getId())), employee);
             }
             for (Map.Entry<Integer, Employee> entry : map.entrySet()) {
                 System.out.println(entry.getKey() + " " + entry.getValue());
@@ -115,6 +122,7 @@ public class MainController {
             e.printStackTrace();
         }
     }
+
     public static void addNewBooking() {
         List<Customer> customerList = new ArrayList<>();
         try {
@@ -170,7 +178,7 @@ public class MainController {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     e.printStackTrace();
-                } catch (IOException e){
+                } catch (IOException e) {
                     e.getMessage();
                 }
                 System.out.print("chọn loại Villa: ");
